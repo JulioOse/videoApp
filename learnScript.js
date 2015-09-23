@@ -40,6 +40,17 @@ $(document).ready(function() {
 		}
 	}
 	
+	// pause all playing videos when going from one page to another
+	function pauseVideos(){
+		var $allVideos = $('.videosAll');
+		for(x in $allVideos){
+			if(typeof $allVideos[x] === 'object' ) {
+				$allVideos[x].pause()
+				console.log($allVideos[x], typeof $allVideos)
+			}
+		}
+	}
+	
 	// call the api function for the different categories
 	
 	apiCall('science', 'clickDiv1', 'btn-primary', '#cont-science');
@@ -143,6 +154,7 @@ $(document).ready(function() {
 		}
 
 		$('#page3').html(outVideo);
+		pauseVideos();
 	})
 			
 	$('.backButton').click(function(){
@@ -150,10 +162,8 @@ $(document).ready(function() {
 		$('#container-pg3').hide();
 		$('#page1').show();
 		var $allVideos = $('.videosAll');
-		for(x in $allVideos){
-			$allVideos[x].pause();
-		}
 		$(this).removeClass('buttonAnimation');
+		pauseVideos();
 	})
 	
 	
