@@ -161,7 +161,6 @@ $(document).ready(function() {
 		$('#container-pg2').hide();
 		$('#container-pg3').hide();
 		$('#page1').show();
-		var $allVideos = $('.videosAll');
 		$(this).removeClass('buttonAnimation');
 		pauseVideos();
 	})
